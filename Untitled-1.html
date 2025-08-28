@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetario de Joel Castillo y Ashly Aguilar</title>
+    <!-- Carga la fuente "Inter" de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Carga el framework Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos personalizados para el fondo y animaciones */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #4A4A4A;
+            background-color: #F8F4E1; /* Fondo color crema muy suave */
+        }
+        
+        /* Animación sutil de fondo de ingredientes */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+            animation: gradient-anim 15s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradient-anim {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animación del ícono del sombrero de chef */
+        .chef-hat {
+            animation: bounce-in 1.5s ease-out;
+            transform-origin: bottom;
+        }
+
+        @keyframes bounce-in {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        /* Estilo para las tarjetas de receta con sombra y transición */
+        .recipe-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo para las imágenes dentro de las tarjetas */
+        .recipe-image {
+            object-fit: cover;
+            width: 100%;
+            height: 250px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 antialiased">
+
+    <!-- Sección de Cabecera (Header) -->
+    <header class="bg-white/70 backdrop-blur-lg sticky top-0 z-50 shadow-md py-4">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center text-center md:text-left">
+            <!-- Icono animado de cocina -->
+            <svg class="w-16 h-16 mr-0 md:mr-4 mb-2 md:mb-0 text-amber-500 chef-hat" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor" d="M144 240a80 80 0 1 1 160 0v16c0 10.9-2.9 21.2-8 30l-80 144c-3.1 5.6-9.1 9-15.5 9s-12.4-3.4-15.5-9l-80-144c-5.1-8.8-8-19.1-8-30v-16zm-48 16c-35.3 0-64 28.7-64 64v80c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-80c0-35.3-28.7-64-64-64zM432 240a80 80 0 1 1 160 0v16c0 10.9-2.9 21.2-8 30l-80 144c-3.1 5.6-9.1 9-15.5 9s-12.4-3.4-15.5-9l-80-144c-5.1-8.8-8-19.1-8-30v-16zm-48 16c-35.3 0-64 28.7-64 64v80c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-80c0-35.3-28.7-64-64-64zM288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V224h64V32zm-64 160H224c0-17.7-14.3-32-32-32s-32 14.3-32 32h32v16h-32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96v-64h-32V192zM320 192V416h64V192h-64z"/>
+            </svg>
+            <div class="flex-grow">
+                <h1 class="text-4xl font-bold text-gray-800 tracking-tight">Recetario de Joel Castillo y Ashly Aguilar</h1>
+                <p class="mt-2 text-lg text-gray-600">Donde la pasión por la cocina se encuentra con la creatividad.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal: Galería de Recetas -->
+    <main class="container mx-auto p-8">
+        <section id="recetas" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Tarjeta de Receta: Ensalada Fresca -->
+            <div class="bg-white rounded-xl shadow-lg p-6 recipe-card">
+                <h2 class="text-3xl font-bold text-center text-amber-600 mb-4">Ensalada Fresca</h2>
+                <img src="https://placehold.co/600x400/C8E6C9/4A4A4A?text=Ensalada+Fresca" 
+                     alt="Imagen de una ensalada fresca." 
+                     class="rounded-lg mb-4 recipe-image"
+                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/C8E6C9/4A4A4A?text=Imagen+no+disponible'">
+                <h3 class="text-xl font-semibold mb-2 text-gray-700">Ingredientes:</h3>
+                <ul class="list-disc list-inside space-y-1 text-gray-600">
+                    <li>2 manzanas de gala</li>
+                    <li>¼ de cebolla morada</li>
+                    <li>½ taza de elotes amarillos</li>
+                    <li>1 pepino</li>
+                    <li>½ zanahoria</li>
+                    <li>1 onza de maní</li>
+                    <li>4 hojas de lechuga (palmito o romana)</li>
+                    <li>2 limones</li>
+                    <li>2 tazas de agua</li>
+                    <li>Aderezo italiano</li>
+                </ul>
+                <h3 class="text-xl font-semibold mt-4 mb-2 text-gray-700">Procedimiento:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                    <li>Lava y corta la manzana, la cebolla, el pepino y la zanahoria.</li>
+                    <li>En un tazón grande, combina la lechuga, las frutas y los vegetales cortados.</li>
+                    <li>Añade el maní y los elotes amarillos.</li>
+                    <li>Exprime los limones sobre la ensalada y mezcla.</li>
+                    <li>Sirve con aderezo italiano al gusto.</li>
+                </ol>
+                <h3 class="text-xl font-semibold mt-4 mb-2 text-gray-700">Tips o Recomendaciones:</h3>
+                <ul class="list-disc list-inside space-y-1 text-gray-600">
+                    <li>Personalízalo: Si no te gusta un determinado ingrediente, siéntete libre de omitirlo o sustituirlo.</li>
+                    <li>Aderezo casero: Para un toque aún más personal, utiliza tu propio aderezo italiano hecho con aceite de oliva, vinagre balsámico, ajo, hierbas y miel para dulzor.</li>
+                    <li>Decoración: Coloca la ensalada en un plato bonito y adorna con hojas de menta fresca para hacer el plato más colorido y sabroso.</li>
+                </ul>
+            </div>
+
+            <!-- Tarjeta de Receta: Ensalada de Frutas -->
+            <div class="bg-white rounded-xl shadow-lg p-6 recipe-card">
+                <h2 class="text-3xl font-bold text-center text-amber-600 mb-4">Ensalada de Frutas</h2>
+                <img src="https://placehold.co/600x400/FFC96F/4A4A4A?text=Ensalada+de+Frutas" 
+                     alt="Imagen de una ensalada de frutas." 
+                     class="rounded-lg mb-4 recipe-image"
+                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/FFC96F/4A4A4A?text=Imagen+no+disponible'">
+                <h3 class="text-xl font-semibold mb-2 text-gray-700">Ingredientes:</h3>
+                <ul class="list-disc list-inside space-y-1 text-gray-600">
+                    <li>1 manzana de gala</li>
+                    <li>2 kiwis</li>
+                    <li>10 fresas</li>
+                    <li>1 naranja</li>
+                    <li>2 rodajas de piña</li>
+                    <li>6 hojas de menta</li>
+                    <li>1 limón</li>
+                </ul>
+                <h3 class="text-xl font-semibold mt-4 mb-2 text-gray-700">Vinagreta Dulce:</h3>
+                <ul class="list-disc list-inside space-y-1 text-gray-600">
+                    <li>El jugo de 2 naranjas</li>
+                    <li>½ de miel de abeja</li>
+                    <li>1 cucharada de vino blanco</li>
+                </ul>
+                <h3 class="text-xl font-semibold mt-4 mb-2 text-gray-700">Instrucciones:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                    <li>**Preparación de la fruta:** Lava bien todas las frutas. Pela la manzana, el kiwi y la naranja. Corta todas las frutas en cubos o trozos. Retira y lava las hojas de menta.</li>
+                    <li>**Preparación de la vinagreta:** En un recipiente pequeño, exprime el jugo de las 2 naranjas. Agrega la miel y el vino blanco. Mezcla bien todos los ingredientes.</li>
+                    <li>**Mezclar y Servir:** En un tazón grande, combina todas las frutas cortadas. Vierte la vinagreta dulce sobre la fruta y mezcla suavemente. Decora con hojas de menta antes de servir.</li>
+                </ol>
+            </div>
+            
+            <!-- Tarjeta de Receta: Mini Donas -->
+            <div class="bg-white rounded-xl shadow-lg p-6 recipe-card">
+                <h2 class="text-3xl font-bold text-center text-amber-600 mb-4">Mini Donas</h2>
+                <img src="https://placehold.co/600x400/E8D2AF/4A4A4A?text=Mini+Donas" 
+                     alt="Imagen de mini donas." 
+                     class="rounded-lg mb-4 recipe-image"
+                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/E8D2AF/4A4A4A?text=Imagen+no+disponible'">
+                <h3 class="text-xl font-semibold mb-2 text-gray-700">Ingredientes:</h3>
+                <ul class="list-disc list-inside space-y-1 text-gray-600">
+                    <li>1 huevo grande</li>
+                    <li>1/2 taza de leche</li>
+                    <li>1 cucharadita de extracto de vainilla</li>
+                    <li>1 taza de harina de trigo</li>
+                    <li>1/4 taza de azúcar granulada</li>
+                    <li>1 1/2 cucharadita de polvo de hornear</li>
+                    <li>1/4 cucharadita de sal</li>
+                    <li>2 cucharadas de mantequilla sin sal, derretida</li>
+                </ul>
+                <h3 class="text-xl font-semibold mt-4 mb-2 text-gray-700">Procedimiento:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                    <li>Precalienta el horno a 180°C (350°F) y engrasa un molde para mini donas.</li>
+                    <li>En un tazón grande, bate el huevo, la leche, la vainilla y la mantequilla derretida.</li>
+                    <li>En otro tazón, mezcla la harina, el azúcar, el polvo de hornear y la sal.</li>
+                    <li>Vierte los ingredientes secos sobre los húmedos y revuelve hasta que se forme una masa homogénea.</li>
+                    <li>Coloca la masa en una manga pastelera o una bolsa Ziploc con la esquina cortada y llena cada cavidad del molde.</li>
+                    <li>Hornea durante 8-10 minutos, o hasta que estén doradas.</li>
+                    <li>Deja enfriar antes de decorar.</li>
+                </ol>
+            </div>
+            
+            <!-- Tarjeta de Receta: Temporizado 1 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 recipe-card">
+                <h2 class="text-3xl font-bold text-center text-amber-600 mb-4">Temporizado 1</h2>
+                <img src="https://placehold.co/600x400/d5f4e6/4A4A4A?text=Temporizado+1" 
+                     alt="Imagen de una receta de temporizado 1." 
+                     class="rounded-lg mb-4 recipe-image"
+                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/d5f4e6/4A4A4A?text=Imagen+no+disponible'">
+                <h3 class="text-xl font-semibold mb-2 text-gray-700">Ingredientes:</h3>
+                <ul class="list-disc list-inside space-y-1 text-gray-600">
+                    <li>1 unidad de Huevo</li>
+                    <li>1 taza de Harina de trigo (140 gramos)</li>
+                    <li>1 pizca de Sal</li>
+                    <li>½ cucharada de Azúcar</li>
+                    <li>1 taza de Agua bien fría</li>
+                </ul>
+                <h3 class="text-xl font-semibold mt-4 mb-2 text-gray-700">Procedimiento:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                    <li>En un tazón, casca el huevo y bátelo ligeramente.</li>
+                    <li>Agrega la harina de trigo, la sal y el azúcar al tazón.</li>
+                    <li>Vierte el agua fría poco a poco mientras mezclas con un batidor o tenedor.</li>
+                    <li>Mezcla todos los ingredientes hasta obtener una masa muy suelta y homogénea.</li>
+                </ol>
+            </div>
+            
+            <!-- Tarjeta de Receta: Temporizado 2 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 recipe-card">
+                <h2 class="text-3xl font-bold text-center text-amber-600 mb-4">Temporizado 2</h2>
+                <img src="https://placehold.co/600x400/ADD8E6/4A4A4A?text=Temporizado+2" 
+                     alt="Imagen de una receta de temporizado 2." 
+                     class="rounded-lg mb-4 recipe-image"
+                     onerror="this.onerror=null; this.src='https://placehold.co/600x400/ADD8E6/4A4A4A?text=Imagen+no+disponible'">
+                <h3 class="text-xl font-semibold mb-2 text-gray-700">Ingredientes:</h3>
+                <ul class="list-disc list-inside space-y-1 text-gray-600">
+                    <li>½ Lata de soda o agua mineral bien helada</li>
+                    <li>100 gramos de harina</li>
+                </ul>
+                <h3 class="text-xl font-semibold mt-4 mb-2 text-gray-700">Procedimiento:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                    <li>En un tazón, combina la harina y la soda bien helada.</li>
+                    <li>Bate la mezcla hasta que no queden grumos.</li>
+                    <li>La masa debe ser ligera y aireada para un mejor resultado.</li>
+                </ol>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Pie de página (Footer) -->
+    <footer class="bg-gray-800 text-white text-center py-6 mt-12">
+        <p>&copy; 2023 Recetario de Joel Castillo y Ashly Aguilar. Todos los derechos reservados.</p>
+        <p class="text-sm mt-2">Diseño y desarrollo por IA.</p>
+    </footer>
+
+</body>
+</html>
